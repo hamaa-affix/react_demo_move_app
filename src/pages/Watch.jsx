@@ -1,9 +1,14 @@
 import React from "react";
 
+//component
+import Layout from "../components/layouts/Layout";
+
 const Watch = () => {
   return (
     <>
-      <div>Watch componet</div>
+      <Layout>
+        <div>Watch componet</div>
+      </Layout>
     </>
   );
 };
