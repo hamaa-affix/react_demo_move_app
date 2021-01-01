@@ -1,9 +1,13 @@
 import React from "react";
+//componets
+import Layout from "../components/layouts/Layout";
 
 const Top = () => {
   return (
     <>
-      <div>top page</div>
+      <Layout>
+        <div>top page</div>
+      </Layout>
     </>
   );
 };
