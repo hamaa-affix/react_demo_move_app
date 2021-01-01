@@ -1,2 +1,2 @@
-# react_demo_move_app
+# react_demo_movie_app
 Created with CodeSandbox
