@@ -31,3 +31,8 @@ const StoreProvider = ({ children }) => {
 };
 
 export default StoreProvider;
+
+const testContext = createContext({
+  id: "",
+  title: ""
+});
