@@ -3,6 +3,8 @@ import { feachPopularData } from "../apis/index";
 import { Store } from "../store/index";
 //componets
 import Layout from "../components/layouts/Layout";
+import VideoGrid from "../components/VideoGrid/VideoGrid";
+import VideoGridItem from "../components/VideoGridItem/VideoGridItem";
 
 const Top = () => {
   const { globalState, setGlobalState } = useContext(Store);
@@ -20,6 +22,19 @@ const Top = () => {
   return (
     <>
       <Layout>
+        <VideoGrid>
+          {globalState.popular &&
+            globalState.popular.map((popular) => {
+              return (
+                <VideoGridItem
+                  key={popular.id}
+                  id={popular.id}
+                  src={popular.snippet.thumbnails.default.url}
+                  title={popular.snippet.title}
+                />
+              );
+            })}
+        </VideoGrid>
         <div>top page</div>
       </Layout>
     </>
