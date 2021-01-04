@@ -1,13 +1,17 @@
 import React, { useReducer, createContext } from "react";
 
 const intialState = {
-  popular: []
+  popular: [],
+  selectd: {}
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "SET_POPULAR":
-      return { popular: action.payload.popular };
+      return { ...state, popular: action.payload.popular };
+    case "SET_SELECTED":
+      //selecteだけ更新したいがstateが上書きさせるから、スプレッド構文でstateを展開してやる必要がある
+      return { ...state, selectd: action.payload.selected };
     default:
       return state;
   }
@@ -31,8 +35,3 @@ const StoreProvider = ({ children }) => {
 };
 
 export default StoreProvider;
-
-const testContext = createContext({
-  id: "",
-  title: ""
-});
