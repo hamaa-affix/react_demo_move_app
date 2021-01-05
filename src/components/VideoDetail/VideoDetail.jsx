@@ -1,5 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
+import Linkify from "react-linkify";
+import Style from "./VideoDetail.modul.scss";
+//component
+import VideoPlay from "../VideoPlay/VideoPlay";
+
+//global state
 import { feachSelectedData } from "../../apis/index";
 import { Store } from "../../store/index";
 
@@ -24,11 +30,21 @@ const VideoDetail = () => {
   useEffect(() => {
     //locationからsearchParamsを取得するには　URLSearchParams（コンストラクター）にlocationオブジェクトを渡す必要がある
     setSelectedVideo();
+    console.log("grobalState", globalState);
   }, []);
-  return (
+  return globalState.selected && globalState.selected.id ? (
     <>
-      <div>Video Detai</div>
+      <div className={Style.wrap}>
+        <VideoPlay id={globalState.selected.id} />
+        <p>{globalState.selected.snippet.title}</p>
+        <hr />
+        <Linkify>
+          <pre>{globalState.selected.snippet.description}</pre>
+        </Linkify>
+      </div>
     </>
+  ) : (
+    <pre>no data</pre>
   );
 };
 
