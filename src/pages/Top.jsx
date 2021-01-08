@@ -12,7 +12,6 @@ const Top = () => {
     //mount時のみ動作させる
     feachPopularData().then((res) => {
       // setMovie(res.data);
-      console.log(res.data.items);
       setGlobalState({
         type: "SET_POPULAR",
         payload: { popular: res.data.items }

@@ -18,5 +18,4 @@ const VideoGridItem = (props) => {
     </>
   );
 };
-
 export default VideoGridItem;

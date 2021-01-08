@@ -16,6 +16,7 @@ const SideList = () => {
   useEffect(() => {
     setRelatedVideo(globalState.selected.id);
   }, [globalState.selected]); //glogalState.selectedを渡すことで動画をさ読み込む度にuseEffectの処理が走る
+
   return (
     <>
       {golobalState.related ? (
