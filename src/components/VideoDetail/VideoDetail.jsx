@@ -23,14 +23,14 @@ const VideoDetail = () => {
       const item = res.data.items.shift();
       //dispatchでデータの更新を行う
       setGlobalState({ type: "SET_SELECTED", payload: { selected: item } });
-      console.log("res", res);
+      //console.log("res", res);
     });
   };
 
   useEffect(() => {
     //locationからsearchParamsを取得するには　URLSearchParams（コンストラクター）にlocationオブジェクトを渡す必要がある
     setSelectedVideo();
-    console.log("grobalState", globalState);
+    //console.log("grobalState", globalState);
   }, []);
   return globalState.selected && globalState.selected.id ? (
     <>

@@ -11,7 +11,7 @@ const reducer = (state, action) => {
     case "SET_POPULAR":
       return { ...state, popular: action.payload.popular };
     case "SET_RELATED":
-      return { ...state, popular: action.payload.realated };
+      return { ...state, popular: action.payload.related };
     case "SET_SELECTED":
       //selecteだけ更新したいがstateが上書きさせるから、スプレッド構文でstateを展開してやる必要がある
       return { ...state, selected: action.payload.selected };

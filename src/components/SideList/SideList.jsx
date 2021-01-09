@@ -1,6 +1,10 @@
-import Reacat, { useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { feachRelatedData } from "../../apis/index";
 import { Store } from "../../store/index";
+import Style from "./SideList.module.scss";
+
+//components
+import SideListItem from "../SideListItem/SideListItem";
 const SideList = () => {
   const { globalState, setGlobalState } = useContext(Store);
 
@@ -9,8 +13,10 @@ const SideList = () => {
     await feachRelatedData(id).then((res) => {
       setGlobalState({
         type: "SET_RELATED",
-        payload: { popular: res.data.items }
+        payload: { related: res.data.items }
       });
+      console.log("related", res.data.items);
+      console.log(globalState);
     });
   };
   useEffect(() => {
@@ -19,20 +25,22 @@ const SideList = () => {
 
   return (
     <>
-      {golobalState.related ? (
-        globalState.related.map(() => {
-          return (
-            <SideListItem
-              id={video.id.videoId}
-              key={video.id.videoId}
-              src={video.snippet.thumbnail.url}
-              title={video.snippet.title}
-            />
-          );
-        })
-      ) : (
-        <span>no data</span>
-      )}
+      <div className={Style.sidenav}>
+        {globalState.related ? (
+          globalState.related.map((video) => {
+            return (
+              <SideListItem
+                id={video.id.videoId}
+                key={video.id.videoId}
+                src={video.snippet.thumbnail.url}
+                title={video.snippet.title}
+              />
+            );
+          })
+        ) : (
+          <span>no data</span>
+        )}
+      </div>
     </>
   );
 };

@@ -40,7 +40,7 @@ export const feachRelatedData = async (id) => {
   return await youtube.get("/search", {
     params: {
       ...params,
-      relatedVideoId: id
+      relatedToVideoId: id
     }
   });
 };
