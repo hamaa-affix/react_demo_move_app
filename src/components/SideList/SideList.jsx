@@ -15,8 +15,8 @@ const SideList = () => {
         type: "SET_RELATED",
         payload: { related: res.data.items }
       });
-      console.log("related", res.data.items);
-      console.log(globalState);
+      //console.log("related", res.data.items);
+      console.log(globalState.related);
     });
   };
   useEffect(() => {
@@ -32,7 +32,7 @@ const SideList = () => {
               <SideListItem
                 id={video.id.videoId}
                 key={video.id.videoId}
-                src={video.snippet.thumbnail.url}
+                src={video.snippet.thumbnails.medium.url}
                 title={video.snippet.title}
               />
             );
