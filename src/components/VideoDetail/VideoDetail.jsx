@@ -30,8 +30,8 @@ const VideoDetail = () => {
   useEffect(() => {
     //locationからsearchParamsを取得するには　URLSearchParams（コンストラクター）にlocationオブジェクトを渡す必要がある
     setSelectedVideo();
-    //console.log("grobalState", globalState);
-  }, []);
+    // eslint-disable-nextline react-hooks/exhaustive-deps
+  }, [location.search]);
   return globalState.selected && globalState.selected.id ? (
     <>
       <div className={Style.wrap}>
