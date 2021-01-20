@@ -1,29 +1,29 @@
-import React, { useContext, useEffect } from "react";
-import { feachRelatedData } from "../../apis/index";
+import React, { useContext } from "react";
+// import { feachRelatedData } from "../../apis/index";
 import { Store } from "../../store/index";
 import Style from "./SideList.module.scss";
 
 //components
 import SideListItem from "../SideListItem/SideListItem";
 const SideList = () => {
-  const { globalState, setGlobalState } = useContext(Store);
+  const { globalState } = useContext(Store);
 
   //globalStateの更新
-  const setRelatedVideo = async (id) => {
-    await feachRelatedData(id).then((res) => {
-      setGlobalState({
-        type: "SET_RELATED",
-        payload: { related: res.data.items }
-      });
-      //console.log("related", res.data.items);
-      console.log("globalsateReated", res.data.items);
-    });
-  };
+  // const setRelatedVideo = async (id) => {
+  //   await feachRelatedData(id).then((res) => {
+  //     setGlobalState({
+  //       type: "SET_RELATED",
+  //       payload: { related: res.data.items }
+  //     });
+  //     //console.log("related", res.data.items);
+  //     console.log("globalsateReated", res.data.items);
+  //   });
+  // };
 
-  useEffect(() => {
-    setRelatedVideo(globalState.selected.id);
-    // eslint-disable-nextline react-hooks/exhaustive-deps
-  }, [globalState.selected]); //glogalState.selectedを渡すことで動画をさ読み込む度にuseEffectの処理が走る
+  // useEffect(() => {
+  //   setRelatedVideo(globalState.selected.id);
+  //   // eslint-disable-nextline react-hooks/exhaustive-deps
+  // }, [globalState.selected]); //glogalState.selectedを渡すことで動画をさ読み込む度にuseEffectの処理が走る
 
   return (
     <>
