@@ -44,3 +44,13 @@ export const feachRelatedData = async (id) => {
     }
   });
 };
+
+//検索キーワードから値を取得するロジック
+export const feachSearchData = async (query) => {
+  return await youtube.get("/search", {
+    params: {
+      ...params,
+      q: query
+    }
+  });
+};

@@ -15,8 +15,8 @@ const Header = ({ children }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setGlobalState({ type: "SET_TERM", playload: { term } });
-    history.push(`/seach?query=${term}`);
+    setGlobalState({ type: "SET_TERM", payload: { term } });
+    history.push(`/search?query=${term}`);
   };
 
   useEffect(() => {
