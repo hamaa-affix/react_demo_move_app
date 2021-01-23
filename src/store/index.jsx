@@ -3,7 +3,8 @@ import React, { useReducer, createContext } from "react";
 const intialState = {
   popular: [],
   related: [],
-  selected: {}
+  selected: {},
+  term: ""
 };
 
 const reducer = (state, action) => {
@@ -15,6 +16,8 @@ const reducer = (state, action) => {
     case "SET_SELECTED":
       //selecteだけ更新したいがstateが上書きさせるから、スプレッド構文でstateを展開してやる必要がある
       return { ...state, selected: action.payload.selected };
+    case "SET_TERM":
+      return { ...state, term: action.payload.term };
     default:
       return state;
   }
